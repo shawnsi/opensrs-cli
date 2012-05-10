@@ -15,3 +15,6 @@ src
 build
 dist
 distribute-*
+
+# Private OpenSRS Info
+.privatekey
