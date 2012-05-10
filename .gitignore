@@ -15,6 +15,7 @@ src
 build
 dist
 distribute-*
+*.egg-info
 
 # Private OpenSRS Info
 .privatekey
