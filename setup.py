@@ -23,7 +23,7 @@ setup(
     keywords = 'opensrs',
     url = 'http://pypi.python.org/opensrscli',
     packages=['opensrscli'],
-    long_description=read('README'),
+    long_description=read('README.rst'),
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Topic :: Utilities',
@@ -31,11 +31,13 @@ setup(
     ],
     install_requires = {
         'pyCLI': ["pycli"],
+        'PyYAML': ["PyYAML"],
     },
     entry_points = {
         'console_scripts': [
-            'opensrs-check-transfer = opensrscli:check_transfer.run',
             'opensrs-balance = opensrscli:balance.run',
+            'opensrs-check-transfer = opensrscli:check_transfer.run',
+            'opensrs-transfer = opensrscli:transfer.run',
         ],
     }
 )

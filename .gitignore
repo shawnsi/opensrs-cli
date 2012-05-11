@@ -19,3 +19,4 @@ distribute-*
 
 # Private OpenSRS Info
 .privatekey
+prefs.yaml
