@@ -25,8 +25,9 @@ Auth template::
  username:
  private_key:
 
-Now provide the prefs.yaml file to opensrs commands with the -p or 
---preferences parameter.
+Now provide the prefs.yaml file to opensrs commands with the -p or
+--preferences parameter.  If no preferences file is specified opensrs-cli will
+look in `$HOME/.opensrs/prefs`.
 
 Contact Sets
 ~~~~~~~~~~~~

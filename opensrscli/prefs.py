@@ -31,7 +31,13 @@ class Prefs(object):
     return contact_set
 
   @property
+  def register(self):
+    register = self.raw_prefs['register']
+    register['contact_set'] = self.contact_set
+    return register
+
+  @property
   def transfer(self):
-    transfer = self.raw_prefs['transfer']
-    transfer['contact_set'] = self.contact_set
+    transfer = self.register
+    transfer['reg_type'] = 'transfer'
     return transfer

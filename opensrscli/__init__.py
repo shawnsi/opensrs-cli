@@ -4,6 +4,7 @@ from opensrs import OpenSRS
 from prefs import Prefs
 import string
 import copy
+import os
 
 class OpenSRSApp(cli.log.LoggingApp):
   
@@ -27,7 +28,7 @@ class OpenSRSApp(cli.log.LoggingApp):
   def setup(self):
     """Add parameters that all OpenSRS cli applications will need"""
     super(OpenSRSApp, self).setup()
-    self.add_param('-p', '--preferences', help='OpenSRS preferences yaml file', default=None, type=str, required=True)
+    self.add_param('-p', '--preferences', help='OpenSRS preferences yaml file', default='%s/.opensrs/prefs' % os.getenv('HOME'), type=str)
     self.add_param('-t', '--test', help='use OpenSRS test environment', default=False, action='store_true')
     self.add_param('domain', nargs='*', help='domains to perform command on')
 
@@ -49,5 +50,6 @@ def check_transfer(app):
 @OpenSRSApp
 def transfer(app):
   for domain in app.params.domain:
-    response = app.opensrs.post("sw_register", "domain", app.prefs.transfer)
-    print response
+    attrs = app.prefs.transfer
+    attrs['domain'] = domain
+    response = app.opensrs.post("sw_register", "domain", attrs)
