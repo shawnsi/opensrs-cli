@@ -10,6 +10,53 @@ reseller account.
 .. _pyCLI: http://packages.python.org/pyCLI/
 .. _OpenSRS: http://www.opensrs.com/
 
+Configuration
+-------------
+
+Basic Auth
+~~~~~~~~~~
+
+You must create a yaml file to provide OpenSRS authentication info at a 
+minimum. This should match the user and private key information you setup in
+the OpenSRS reseller dashboard for API access.
+
+Auth template::
+
+ username:
+ private_key:
+
+Now provide the prefs.yaml file to opensrs commands with the -p or 
+--preferences parameter.
+
+Contact Sets
+~~~~~~~~~~~~
+
+In order to perform and domain registration or transfers contact sets will need
+to be defined.  Add them to prefs.yaml using the following template.  A default
+contact can be provided and fields can be overriden for admin, owner, billing,
+or tech contacts.
+
+Contact set template::
+
+  contact_set:
+    default:
+      first_name:
+      last_name:
+      org_name:
+      address1:
+      city:
+      state:
+      postal_code:
+      country:
+      phone:
+      email:
+    billing:
+      last_name:
+      email:
+    tech:
+      last_name:
+      email:
+
 Usage
 -----
 
