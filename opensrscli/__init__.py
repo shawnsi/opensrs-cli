@@ -53,3 +53,7 @@ def transfer(app):
     attrs = app.prefs.transfer
     attrs['domain'] = domain
     response = app.opensrs.post("sw_register", "domain", attrs)
+    if response['is_success']:
+      print '%s: %s' % (domain, 'Transfer initiated')
+    else:
+      print '%s: %s' % (domain, 'Failure')
