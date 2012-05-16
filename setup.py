@@ -32,6 +32,7 @@ setup(
     install_requires = {
         'pyCLI': ["pycli"],
         'PyYAML': ["PyYAML"],
+        'OpenSRS': ["OpenSRS"],
     },
     entry_points = {
         'console_scripts': [

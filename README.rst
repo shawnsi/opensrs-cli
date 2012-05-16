@@ -13,11 +13,8 @@ reseller account.
 Installation
 ------------
 
-I haven't put this on pypi yet as I'm depending on my own fork of OpenSRS-py.
-The dependency situation is a little wonky and therefore installing from 
-github via pip is probably best::
+I haven't put this on pypi yet so install from github for the time being::
 
- $ pip install -e git+https://github.com/shawnsi/OpenSRS-py.git#egg=OpenSRS-py
  $ pip install -e git+https://github.com/shawnsi/opensrs-cli.git#egg=opensrscli
 
 Configuration
