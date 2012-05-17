@@ -5,10 +5,19 @@ import argparse
 import os
 
 class CLI(object):
+    """
+    Simple decorator class to create argparse based cli commands.
+    """
 
     entry_points = []
 
     def __init__(self, func):
+        """
+        Decorates the supplied function and sets up the argparse parser.
+
+        Keyword arguments:
+        func -- the function to be decorated
+        """
         self.func = func
         self.prog = 'opensrs-%s' % func.func_name
         self.entry_points.append('%s = opensrscli:%s.run' % (self.prog, func.func_name))
@@ -20,6 +29,9 @@ class CLI(object):
         self.add_argument = self.parser.add_argument
 
     def run(self):
+        """
+        Sets up the OpenSRS connection and runs the decorated function.
+        """
         self.args = self.parser.parse_args()
         self.prefs = Prefs(self.args.preferences)
         self.auth_dict = {
