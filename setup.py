@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 
-import distribute_setup
-distribute_setup.use_setuptools()
-
 import os
 from setuptools import setup
 from opensrscli.parser import CLI
@@ -16,7 +13,7 @@ def read(fname):
 
 setup(
     name = 'opensrscli',
-    version = '0.1.4',
+    version = '0.1.5',
     author = 'Shawn Siefkas',
     author_email = 'shawn.siefkas@meredith.com',
     description = 'A CLI for OpenSRS reseller accounts',

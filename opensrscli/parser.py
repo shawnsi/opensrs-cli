@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from prefs import Prefs
 import argparse
 import os
 import string
@@ -32,6 +31,12 @@ class CLI(object):
         """
         Sets up the OpenSRS connection and runs the decorated function.
         """
+        # Moving import of OpenSRS here so this module can be used by
+        # distribute for entry_point creation prior to dependency
+        # install
+        from opensrs import OpenSRS
+        from prefs import Prefs
+
         self.args = self.parser.parse_args()
         self.prefs = Prefs(self.args.preferences)
         self.auth_dict = {
@@ -39,11 +44,6 @@ class CLI(object):
             'private_key': self.prefs.private_key,
             'test': self.args.test,
         }
-
-        # Moving import of OpenSRS here so this module can be used by
-        # distribute for entry_point creation prior to dependency
-        # install
-        from opensrs import OpenSRS
         self.opensrs = OpenSRS(**self.auth_dict)
         self.func(self)
 

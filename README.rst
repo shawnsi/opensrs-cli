@@ -17,6 +17,23 @@ I haven't put this on pypi yet so install from github for the time being::
 
  $ pip install opensrscli
 
+Development
+-----------
+
+Install virtualenv and distribute if they aren't already present::
+
+ $ pip install distribute virtualenv
+
+Clone the project and initialize a development environment::
+
+ $ git clone git://github.com/shawnsi/opensrs-cli.git && cd opensrs-cli
+ $ virtualenv . 
+ $ source /bin/activate
+
+You can use distribute to install dependencies and setup entry points::
+
+ $ python setup.py develop
+
 Configuration
 -------------
 
