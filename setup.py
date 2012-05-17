@@ -5,6 +5,7 @@ distribute_setup.use_setuptools()
 
 import os
 from setuptools import setup
+from opensrscli.parser import CLI
 
 # Utility function to read the README file.
 # Used for the long_description.  It's nice, because now 1) we have a top level
@@ -35,9 +36,7 @@ setup(
         'OpenSRS': ["OpenSRS"],
     },
     entry_points = {
-        'console_scripts': [
-            'opensrs = opensrscli:cli_entry',
-        ],
+        'console_scripts': CLI.entry_points
     }
 )
 
