@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 
-import distribute_setup
-distribute_setup.use_setuptools()
-
 import os
 from setuptools import setup
 from opensrscli.parser import CLI
