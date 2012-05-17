@@ -30,15 +30,13 @@ setup(
         'License :: OSI Approved :: BSD License',
     ],
     install_requires = {
-        'pyCLI': ["pycli"],
+        'argparse': ["argparse"],
         'PyYAML': ["PyYAML"],
         'OpenSRS': ["OpenSRS"],
     },
     entry_points = {
         'console_scripts': [
-            'opensrs-balance = opensrscli:balance.run',
-            'opensrs-check-transfer = opensrscli:check_transfer.run',
-            'opensrs-transfer = opensrscli:transfer.run',
+            'opensrs = opensrscli:cli_entry',
         ],
     }
 )
