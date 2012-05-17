@@ -5,7 +5,7 @@ output = virtualenv.create_bootstrap_script(textwrap.dedent("""
         subprocess.call([join(home_dir, 'bin', 'pip'), 
             'install', 'OpenSRS'])
         subprocess.call([join(home_dir, 'bin', 'pip'), 
-            'install', 'pyCLI'])
+            'install', 'argparse'])
         subprocess.call([join(home_dir, 'bin', 'pip'), 
             'install', 'PyYAML'])
         subprocess.call([join(home_dir, 'bin', 'pip'), 
