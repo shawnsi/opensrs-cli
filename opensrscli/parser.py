@@ -3,6 +3,7 @@ from prefs import Prefs
 from opensrs import OpenSRS
 import argparse
 import os
+import string
 
 class CLI(object):
     """
@@ -19,7 +20,7 @@ class CLI(object):
         func -- the function to be decorated
         """
         self.func = func
-        self.prog = 'opensrs-%s' % func.func_name
+        self.prog = 'opensrs-%s' % string.replace(func.func_name, '_', '-')
         self.entry_points.append('%s = opensrscli:%s.run' % (self.prog, func.func_name))
         self.parser = argparse.ArgumentParser(prog=self.prog)
         self.parser.add_argument('-p', '--preferences', help='OpenSRS preferences yaml file',
