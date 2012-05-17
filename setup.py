@@ -30,11 +30,12 @@ setup(
         'Topic :: Utilities',
         'License :: OSI Approved :: BSD License',
     ],
-    install_requires = {
-        'argparse': ["argparse"],
-        'PyYAML': ["PyYAML"],
-        'OpenSRS': ["OpenSRS"],
-    },
+    install_requires = [
+        'argparse',
+        'distribute',
+        'OpenSRS >= 0.1.4',
+        'PyYAML',
+    ],
     entry_points = {
         'console_scripts': CLI.entry_points
     }
