@@ -16,7 +16,7 @@ def read(fname):
 
 setup(
     name = 'opensrscli',
-    version = '0.1.0',
+    version = '0.1.2',
     author = 'Shawn Siefkas',
     author_email = 'shawn.siefkas@meredith.com',
     description = 'A CLI for OpenSRS reseller accounts',
