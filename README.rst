@@ -15,7 +15,7 @@ Installation
 
 I haven't put this on pypi yet so install from github for the time being::
 
- $ pip install -e git+https://github.com/shawnsi/opensrs-cli.git#egg=opensrscli
+ $ pip install opensrscli
 
 Configuration
 -------------
@@ -74,3 +74,4 @@ Currently provided:
 
 - opensrs-balance
 - opensrs-check-transfer
+- opensrs-transfer
