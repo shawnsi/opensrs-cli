@@ -35,7 +35,7 @@ def transfer(cli):
     for domain in cli.args.domain:
         attrs = cli.prefs.transfer
         attrs['domain'] = domain
-        response = app.opensrs.post("sw_register", "domain", attrs)
+        response = cli.opensrs.post("sw_register", "domain", attrs)
         if response['is_success']:
             print '%s: %s' % (domain, 'Transfer initiated')
         else:
