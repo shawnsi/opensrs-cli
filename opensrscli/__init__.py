@@ -24,8 +24,33 @@ def check_transfer(cli):
             print '%s: %s' % (domain, state)
         except KeyError:
             print '%s: %s' % (domain, response)
+        print
 
 check_transfer.add_argument('domain', nargs='*', help='domains to perform command on')
+
+@CLI
+def nameservers(cli):
+    """
+    Returns nameservers for a domain
+    """
+    for domain in cli.args.domain:
+        attrs = {
+            'domain': domain,
+            'type': 'nameservers',
+        }
+        response = cli.opensrs.post("get", "domain", attrs)
+        try:
+            nameservers_dict_list = response['attributes']['nameserver_list']
+            nameserver_list = map(
+                lambda d: d['name'],
+                nameservers_dict_list
+            )
+            print '%s:\n%s' % (domain, '\n'.join(nameserver_list))
+        except KeyError:
+            print '%s: %s' % (domain, response)
+        print
+
+nameservers.add_argument('domain', nargs='*', help='domains to perform command on')
 
 @CLI
 def transfer(cli):
@@ -40,6 +65,7 @@ def transfer(cli):
             print '%s: %s' % (domain, 'Transfer initiated')
         else:
             print '%s: %s' % (domain, response)
+        print
 
 transfer.add_argument('domain', nargs='*', help='domains to perform command on')
 
