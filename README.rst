@@ -28,7 +28,7 @@ Clone the project and initialize a development environment::
 
  $ git clone git://github.com/shawnsi/opensrs-cli.git && cd opensrs-cli
  $ virtualenv . 
- $ source /bin/activate
+ $ source bin/activate
 
 You can use distribute to install dependencies and setup entry points::
 
