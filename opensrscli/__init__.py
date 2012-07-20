@@ -66,20 +66,17 @@ def set_nameservers(cli):
                 lambda d: d['name'],
                 nameservers_dict_list
             )
+            current_ns = set([ns.lower() for ns in nameserver_list])
+            new_ns = set([ns.lower() for ns in cli.prefs.nameservers])
             attrs = {
                 'domain': domain,
                 'op_type': 'add_remove',
-                'remove_ns': nameserver_list,
-                'add_ns': [
-                    'PDNS1.ULTRADNS.NET',
-                    'PDNS2.ULTRADNS.NET',
-                    'PDNS3.ULTRADNS.ORG',
-                    'PDNS4.ULTRADNS.ORG',
-                    'PDNS5.ULTRADNS.INFO',
-                    'PDNS6.ULTRADNS.CO.UK',
-                ],
+                'remove_ns': list(current_ns.difference(new_ns)),
+                'add_ns': list(new_ns.difference(current_ns)),
             }
+            print attrs
             response = cli.opensrs.post('advanced_update_nameservers', 'domain', attrs)
+            print response
             print '%s: %s' % (domain, response['response_text'])
         except KeyError:
             print '%s: %s' % (domain, response)

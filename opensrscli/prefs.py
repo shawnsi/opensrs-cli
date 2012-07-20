@@ -31,6 +31,10 @@ class Prefs(object):
     return contact_set
 
   @property
+  def nameservers(self):
+    return self.raw_prefs['nameservers']
+
+  @property
   def register(self):
     register = self.raw_prefs['register']
     register['contact_set'] = self.contact_set
