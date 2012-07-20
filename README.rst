@@ -13,7 +13,7 @@ reseller account.
 Installation
 ------------
 
-I haven't put this on pypi yet so install from github for the time being::
+Install from pypi::
 
  $ pip install opensrscli
 
@@ -90,5 +90,30 @@ This package installs scripts prefixed with opensrs.
 Currently provided:
 
 - opensrs-balance
+
+  Returns account balance
+
 - opensrs-check-transfer
+
+  Returns transfer status of one or more domains
+
 - opensrs-transfer
+
+  Transfers one or more domains according to contact sets described above
+
+- opensrs-get-nameservers
+
+  Get the nameservers attached to one or more domains
+
+- opensrs-set-nameservers
+
+  Sets default nameservers from user preferences file on one or more domains
+
+- opensrs-lock
+
+  Lock one or more domains
+
+- opensrs-unlock
+
+  Unlock one or more domains
+
